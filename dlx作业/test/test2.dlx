@@ -1,0 +1,13 @@
+            .DATA
+TEST1 :     .ASCIIZ "Hello world!"
+
+            .TEXT   
+            .GLOBAL  MAIN
+MAIN :      ADDI    R2, R0, TEST1
+LOOP :      LB      R4, 0(R2);if you use LW here,it would be terrible
+            TRAP    x07
+            BEQZ    R4, EXIT
+            ADDI    R2, R2, #1
+            J       LOOP
+EXIT :      TRAP    x00
+

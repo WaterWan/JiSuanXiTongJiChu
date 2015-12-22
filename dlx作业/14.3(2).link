@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DLXObject>
+<Data>
+	<DataTable Base='805306368' Length='0'>
+	</DataTable>
+	<DataContent></DataContent>
+</Data>
+<Text>
+
+	<TextTable Base='1073741824' Length='116'>
+		<Symbol name='MAIN' isGlobal='True' isExtern='False' >0</Symbol>
+		<Symbol name='TEST1_2' isGlobal='False' isExtern='False' >24</Symbol>
+		<Symbol name='TEST1_3' isGlobal='False' isExtern='False' >40</Symbol>
+		<Symbol name='NUM2' isGlobal='False' isExtern='False' >44</Symbol>
+		<Symbol name='TEST2_2' isGlobal='False' isExtern='False' >64</Symbol>
+		<Symbol name='TEST2_3' isGlobal='False' isExtern='False' >80</Symbol>
+		<Symbol name='END' isGlobal='False' isExtern='False' >84</Symbol>
+		<Symbol name='TEST3_2' isGlobal='False' isExtern='False' >104</Symbol>
+		<Symbol name='EXIT' isGlobal='False' isExtern='False' >108</Symbol>
+	</TextTable>
+	<TextContent>35 #9 1 1 4 #0 19 2 1 #57 29 2 TEST1_2 3 1 1 #48 31 NUM2 19 2 1 #90 29 2 TEST1_3 3 1 1 #55 31 NUM2 3 1 1 #87 35 #9 19 2 4 #57 29 2 TEST2_2 3 4 4 #48 31 END 19 2 4 #90 29 2 TEST1_3 3 4 4 #55 31 END 3 4 4 #87 0 4 1 4 19 2 4 #9 29 2 TEST3_2 1 4 4 #48 31 EXIT 1 4 4 #87 35 #7 35 #0 </TextContent>
+</Text>
+</DLXObject>

@@ -1,0 +1,21 @@
+            .DATA	x30000000
+            .TEXT   x40000000
+            .GLOBAL  MAIN       ;R5为n R6为结果，R3为n+1项
+MAIN :      ADDI    R6, R0, #1
+            ADDI    R3, R0, #1
+            SEQI    R4, R5, #0
+            BNEZ    R4, CASE1
+            SEQI    R4, R5, #1
+            BNEZ    R4, CASE1
+            J       LOOP
+CASE1 :     ADDI    R5, R0, #1
+
+LOOP :      BEQZ    R5, EXIT
+            ADD     R4, R0, R3
+            ADD     R3, R3, R6
+            ADD     R6, R0, R4
+            SUBI    R5, R5, #1
+
+            J       LOOP
+
+EXIT :      TRAP    X00

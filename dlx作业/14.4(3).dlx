@@ -1,0 +1,77 @@
+            .DATA   x30000000
+NUMBER :    .ASCIIZ "Tell me the length of number.>"
+TIP :       .ASCIIZ "Enter your number and use ENTER to conform.(No more than 9 digits and no captain)>"
+SAVER1 :    .SPACE  #4
+SAVER2 :    .SPACE  #4
+SAVER31 :   .SPACE  #4
+		;
+            .TEXT   x40000000
+            .GLOBAL  MAIN
+
+MAIN :      ADDI    R4, R0, TIP
+            TRAP    x08
+            ADDI    R4, R0, #10
+            TRAP    x07
+		;
+            LHI     R1, x3000
+            ADDI    R1, R1, x100		;R1指向ASCIIBUFFIN的首地址x30000100
+LOOP1 :     TRAP    x06
+            TRAP    x07
+            SEQI    R2, R4, #10		;判断输入是否为回车，并将判断结果存储在R2中
+            SW      #0(R1), R4
+            BNEZ    R2, OUT
+            ADDI    R1, R1, #4
+            J       LOOP1
+OUT :       ADDI    R4, R0, NUMBER
+            TRAP    x08
+            TRAP    x06
+            TRAP    x07
+            ADD     R3, R3, R4		;R3中储存数字的位数
+		;将字符转换成数字
+            LHI     R1, x3000		;R1指向ASCIIBUFFIN的首地址x30000100
+            ADDI    R1, R1, x100
+            LW      R5, #0(R1)		;R5临时保存读取的字符
+            SEQI    R2, R5, #120
+            BEQZ    R2, NUM_10
+            JAL     NUM_16_DO
+            J       EXIT
+NUM_10 :    JAL     NUM_10_DO
+EXIT :      TRAP    x00
+		;
+		;
+NUM_10_DO : SW      SAVER1(R0), R1
+            SW      SAVER2(R0), R2
+            SW      SAVER31(R0), R31
+LOOP10_DO : LW      R5, #0(R1)		;R5临时保存读取的字符
+            SEQI    R2, R5, x0A
+            BNEZ    R2, EXIT_10
+            SUBI    R5, R5, x30
+            SW      #0(R1), R5
+            ADDI    R1, R1, #4
+            J       LOOP10_DO
+EXIT_10 :   LW      R1, SAVER1(R0)
+            LW      R2, SAVER2(R0)
+            LW      R31, SAVER31(R0)
+            JR      R31
+		;
+		;
+NUM_16_DO : SW      SAVER1(R0), R1
+            SW      SAVER2(R0), R2
+            SW      SAVER31(R0), R31
+            ADDI    R1, R1, #4
+LOOP16_DO : LW      R5, #0(R1)		;R5临时保存读取的字符
+            SEQI    R2, R5, x0A
+            BNEZ    R2, EXIT_16
+            SLEI    R6, R5, #57
+            BEQZ    R6, LETTER_16
+            SUBI    R5, R5, #48
+            J       AGAIN_16
+LETTER_16 : SUBI    R5, R5, #87
+AGAIN_16 :  SW      #0(R1), R5
+            ADDI    R1, R1, #4
+            J       LOOP16_DO
+EXIT_16 :   LW      R1, SAVER1(R0)
+            LW      R2, SAVER2(R0)
+            LW      R31, SAVER31(R0)
+            JR      R31
+

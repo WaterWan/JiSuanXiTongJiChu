@@ -1,0 +1,26 @@
+            .DATA
+            .TEXT   
+            .GLOBAL  MAIN
+MAIN :      ADDI    r8,r0,#10
+            ADDI    R9, R0, #5
+            ADDI    R10, R0, #0
+            ADD     R2, R0, R9
+            ADD     R5, R0, R8
+LOOP :      BEQZ    R2, EXIT
+FIND :      ANDI    R3, R2, #1
+            BNEZ    R3, SUM
+            J       LOOP2
+SUM :       ADD     R10, R10, R5
+            SRAI    R2, R2, #1
+            SLLI    R5, R5, #1
+            J       LOOP
+LOOP2 :     SRAI    R2, R2, #1
+            SLLI    R5, R5, #1
+            J       LOOP
+EXIT :      TRAP    x00
+
+
+
+
+
+

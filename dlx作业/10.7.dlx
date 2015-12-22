@@ -1,0 +1,12 @@
+            .DATA
+            .TEXT   
+            .GLOBAL  MAIN
+MAIN :      ADDI    R10, R0, #0
+            ADDI    R11, R0, #0
+LOOP :      SLE     R2, R8, R9
+            BEQZ    R2, EXIT
+            ADDI    R10, R10, #1
+            SUB     R9, R9, R8
+            J       LOOP
+EXIT :      ADDI    R11, R9, #0
+            TRAP    x00

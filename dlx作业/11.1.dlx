@@ -1,0 +1,11 @@
+            .DATA
+            .TEXT   
+            .GLOBAL  MAIN
+MAIN :      ADDI    R2, R0, #0
+START :     ANDI    R3, R1, #1
+            BEQZ    R3, LOOP
+            ADDI    R2, R2, #1
+LOOP :      SRLI    R1, R1, #1
+            BEQZ    R1, EXIT
+            J       START
+exit:       TRAP    x00

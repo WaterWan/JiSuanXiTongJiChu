@@ -1,0 +1,16 @@
+            .DATA	X20000000
+            .TEXT   X40000000
+            .GLOBAL  MAIN
+MAIN :      ADDI    R2, R0, #0
+LOOP :      BEQZ    R1, EXIT
+            ANDI    R3, R1, #1
+            BNEZ    R3, LOOP2
+            SRAI    R1, R1, #1
+            J       LOOP
+LOOP2 :     ADDI    R2, R2, #1
+            SRAI    R1, R1, #1
+            J       LOOP
+
+
+
+EXIT :      TRAP    X00

@@ -1,0 +1,38 @@
+            .DATA	x30000000
+		;
+            .TEXT   x40000000
+            .GLOBAL  MAIN
+MAIN :      LHI     R4, x3000		;R4指向即将生成的字符串
+            ADDI    R2, R0, #100		;需要被解构的三位数（二进制补码）
+		;
+BEGIN100 :  ADDI    R7, R0, x30
+LOOP100 :   SLTI    R3, R2, #100
+            BNEZ    R3, END100
+            ADDI    R7, R7, #1
+            SUBI    R2, R2, #100
+            J       LOOP100
+END100 :    SEQI    R5, R7, x30
+            BEQZ    R5, OUT100
+            J       BEGIN10
+OUT100 :    SB      0(R4), R7
+            ADDI    R4, R4, #1
+		;
+BEGIN10 :   ADDI    R8, R0, x30
+LOOP10 :    SLTI    R3, R2, #10
+            BNEZ    R3, END10
+            ADDI    R8, R8, #1
+            SUBI    R2, R2, #10
+            J       LOOP10
+END10 :     SEQI    R6, R7, x30
+            BEQZ    R6, OUT10
+            SEQI    R5, R8, x30
+            BEQZ    R5, OUT10
+            J       BEGIN1
+OUT10 :     SB      0(R4), R8
+            ADDI    R4, R4, #1
+BEGIN1 :    ADDI    R9, R2, x30
+            SB      0(R4), R9
+            LHI     R4, x3000
+            TRAP    x08
+            TRAP    x00
+

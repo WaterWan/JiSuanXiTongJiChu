@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DLXObject>
+<Data>
+	<DataTable Base='805306368' Length='126'>
+		<Symbol name='NUMBER' isGlobal='False' isExtern='False' >0</Symbol>
+		<Symbol name='TIP' isGlobal='False' isExtern='False' >31</Symbol>
+		<Symbol name='SAVER1' isGlobal='False' isExtern='False' >114,115,116,117</Symbol>
+		<Symbol name='SAVER2' isGlobal='False' isExtern='False' >118,119,120,121</Symbol>
+		<Symbol name='SAVER31' isGlobal='False' isExtern='False' >122,123,124,125</Symbol>
+	</DataTable>
+	<DataContent>54656C6C206D6520746865206C656E677468206F66206E756D6265722E3E00456E74657220796F7572206E756D62657220616E642075736520454E54455220746F20636F6E666F726D2E284E6F206D6F7265207468616E20392064696769747320616E64206E6F206361707461696E293E00000000000000000000000000</DataContent>
+</Data>
+<Text>
+
+	<TextTable Base='1073741824' Length='624'>
+		<Symbol name='MAIN' isGlobal='True' isExtern='False' >0</Symbol>
+		<Symbol name='LOOP1' isGlobal='False' isExtern='False' >48</Symbol>
+		<Symbol name='OUT' isGlobal='False' isExtern='False' >76</Symbol>
+		<Symbol name='NUM_10' isGlobal='False' isExtern='False' >148</Symbol>
+		<Symbol name='EXIT' isGlobal='False' isExtern='False' >152</Symbol>
+		<Symbol name='NUM_10_DO' isGlobal='False' isExtern='False' >156</Symbol>
+		<Symbol name='LOOP10_DO' isGlobal='False' isExtern='False' >252</Symbol>
+		<Symbol name='EXIT_10' isGlobal='False' isExtern='False' >280</Symbol>
+		<Symbol name='NUM_16_DO' isGlobal='False' isExtern='False' >380</Symbol>
+		<Symbol name='LOOP16_DO' isGlobal='False' isExtern='False' >480</Symbol>
+		<Symbol name='LETTER_16' isGlobal='False' isExtern='False' >508</Symbol>
+		<Symbol name='AGAIN_16' isGlobal='False' isExtern='False' >512</Symbol>
+		<Symbol name='EXIT_16' isGlobal='False' isExtern='False' >524</Symbol>
+	</TextTable>
+	<TextContent>1 4 0 TIP 0 35 #8 1 4 0 #10 35 #7 24 1 #12288 1 1 1 #256 35 #6 35 #7 21 2 4 #10 28 4 1 #0 30 2 OUT 1 1 1 #4 31 LOOP1 1 4 0 NUMBER 0 35 #8 35 #6 35 #7 0 3 3 4 24 1 #12288 1 1 1 #256 27 5 1 #0 21 2 5 #120 29 2 NUM_10 32 NUM_16_DO 31 EXIT 32 NUM_10_DO 35 #0 28 1 0 SAVER1 0 28 2 0 SAVER2 0 28 31 0 SAVER31 0 27 5 1 #0 21 2 5 #10 30 2 EXIT_10 3 5 5 #48 28 5 1 #0 1 1 1 #4 31 LOOP10_DO 27 1 0 SAVER1 0 27 2 0 SAVER2 0 27 31 0 SAVER31 0 33 31 28 1 0 SAVER1 0 28 2 0 SAVER2 0 28 31 0 SAVER31 0 1 1 1 #4 27 5 1 #0 21 2 5 #10 30 2 EXIT_16 19 6 5 #57 29 6 LETTER_16 3 5 5 #48 31 AGAIN_16 3 5 5 #87 28 5 1 #0 1 1 1 #4 31 LOOP16_DO 27 1 0 SAVER1 0 27 2 0 SAVER2 0 27 31 0 SAVER31 0 33 31 </TextContent>
+</Text>
+</DLXObject>

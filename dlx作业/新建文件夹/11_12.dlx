@@ -1,0 +1,8 @@
+            .DATA	x30000000
+NUM :       .SPACE  4
+            .TEXT   x40000000
+            .GLOBAL  MAIN
+MAIN :      ADDI    R1, R0, #10000
+            SW      NUM(R0), R1
+            TRAP    x00
+

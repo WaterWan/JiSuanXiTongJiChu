@@ -1,0 +1,20 @@
+            .DATA	x30000000
+A :         .WORD   X30000000
+            .TEXT   x40000000
+            .GLOBAL  MAIN
+MAIN :      ADD     R1, R0, R0
+            ADD     R2, R0, R0
+            ADDI    R6, R0, A
+LOOP :      LW      R3, r6(R0)
+            SEQI    R4, R3, #-1
+            BNEZ    R4, EXIT
+            ANDI    R5, R3, #1
+            BEQZ    R5, NOTODD
+            ADDI    R1, R1, #1
+            ADDI    R6, R6, #4
+			j LOOP 
+NOTODD :    ADDI    R2, R2, #1
+            ADDI    R6, R6, #4
+            J       LOOP
+
+EXIT :      TRAP    X00

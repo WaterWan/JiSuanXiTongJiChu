@@ -1,0 +1,36 @@
+/*
+151250137
+2015.12.06
+*/
+#include<stdio.h>
+#include<stdlib.h>
+
+void Func(int m,int n);
+char a[10][10]={{""},{""},{"abc"},{"def"},{"ghi"},{"jkl"},{"mno"},{"pqrs"},{"tuv"},{"wxyz"}};
+
+int main()
+{
+	int m;
+    int x,y;
+	printf("Enter a double-digit number without 0 or 1:\n");
+    scanf("%2d",&m);
+	x=m/10;
+	y=m%10;
+    Func(x,y);
+	system("pause");
+	return 0;
+
+}
+
+void Func(int m,int n)
+{
+    char *x,*y;
+    for(x=a[m];*x;x++)
+    {
+        for(y=a[n];*y;y++)
+        {
+            printf("%c%c ",*x,*y);
+        }
+        printf("\n");
+    }
+}

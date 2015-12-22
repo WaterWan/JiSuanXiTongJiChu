@@ -1,0 +1,36 @@
+            .DATA
+		;
+            .TEXT
+            .GLOBAL  MAIN
+MAIN :      TRAP    x09		;Input 
+            ADDI    R1, R4, #0		;R1 saves 1st number
+            SLEI    R2, R1, #57;9's ascii is #57
+            BEQZ    R2, TEST1_2;if r1>9,jump to TEST1_2 
+            SUBI    R1, R1, #48;if r1<=9,r1=r1-48
+            J       NUM2
+TEST1_2 :   SLEI    R2, R1, #90;Z's ascii is #90
+            BEQZ    R2, TEST1_3;if r1>#90,jump to TEST1_3 
+            SUBI    R1, R1, #55;if r1<=#90,r1=r1-55,for example,A->#10
+            J       NUM2
+TEST1_3 :   SUBI    R1, R1, #87;fOR example,a->#10
+
+NUM2 :      TRAP    x09
+
+            SLEI    R2, R4, #57
+            BEQZ    R2, TEST2_2
+            SUBI    R4, R4, #48
+            J       END
+TEST2_2 :   SLEI    R2, R4, #90
+            BEQZ    R2, TEST1_3
+            SUBI    R4, R4, #55
+            J       END
+TEST2_3 :   SUBI    R4, R4, #87
+END :       ADD     R4, R1, R4
+
+            SLEI    R2, R4, #9
+            BEQZ    R2, TEST3_2
+            ADDI    R4, R4, x30
+            J       EXIT
+TEST3_2 :   ADDI    R4, R4, #87
+EXIT :      TRAP    x07
+            TRAP    x00

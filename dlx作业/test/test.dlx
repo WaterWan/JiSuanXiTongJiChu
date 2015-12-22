@@ -1,0 +1,7 @@
+            .DATA
+            .TEXT   
+            .GLOBAL  MAIN
+MAIN :      ADDI    R4, R0, #1
+            TRAP    x07
+            TRAP    x00
+
